@@ -12,13 +12,14 @@ import java.util.Collections;
 import org.springframework.context.annotation.Bean;
 
 import java.util.Collections;
-
+@Configuration
+@EnableSwagger2
 public class SwaggerConfig {
     @Bean
     public Docket apiDocket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.crowbook.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.bionaturista.application.controllers"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(getApiInfo());
